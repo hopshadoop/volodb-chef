@@ -1,5 +1,7 @@
 dependencies:
   - recipe: volodb::install
+    local:
+      - ndb::install
   - recipe: volodb::server
     local:
       - volodb::install
