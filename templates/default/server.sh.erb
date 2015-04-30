@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nohup <%= node[:volodb][:home_dir] %>/lib/volodb  -config <%= node[:volodb][:home_dir] %>/config/config.props 2>&1 logs/volodb.log &

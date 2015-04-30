@@ -1,0 +1,9 @@
+dependencies:
+  - recipe: volodb::install
+  - recipe: volodb::server
+    local:
+      - volodb::install
+  - recipe: volodb::client
+    local:
+      - volodb::install
+
