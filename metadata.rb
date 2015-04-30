@@ -5,13 +5,13 @@ license          "Apache v2.0"
 description      'Installs/Configures volodb'
 version          "0.1"
 
-recipe            "volodb::server", "Installs and starts volodb server"
-recipe            "volodb::client", "Installs volodb client libraries"
-
 depends 'ark'
 depends 'protobuf'
 depends 'zeromq'
 depends 'ndb'
+
+recipe            "volodb::server", "Installs and starts volodb server"
+recipe            "volodb::client", "Installs volodb client libraries"
 
 %w{ ubuntu debian rhel centos }.each do |os|
   supports os
