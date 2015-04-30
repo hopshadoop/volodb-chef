@@ -49,8 +49,6 @@ end
 server_private_ip = private_recipe_ip("volodb","server")
 mgmd_private_ip = private_recipe_ip("ndb","mgmd")
 
-ndb_connection_str = "#{mgmd_private_ip}:#{node[:ndb][:mgmd][:port]}"
-
 file "#{node[:volodb][:version_dir]}/config/config.props" do
   owner node[:volodb][:user]
   action :delete
@@ -59,11 +57,10 @@ end
 template "#{node[:volodb][:version_dir]}/config/config.props" do
   source "config.props.erb"
   owner node[:volodb][:user]
-  group node[:volodb][:group]
   mode "755"
   variables({
-              :server_ip => server_private_ip
-              :ndb_connection_str => ndb_connection_str
+              :server_ip => server_private_ip,
+              :ndb_connectstr => mgmd_private_ip
             })
   action :create_if_missing
 end

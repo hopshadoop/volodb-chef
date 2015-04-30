@@ -3,7 +3,9 @@ dependencies:
   - recipe: volodb::server
     local:
       - volodb::install
+    global:
+      - ndb::mysqld
+      - ndb::mgmd
   - recipe: volodb::client
     local:
       - volodb::install
-

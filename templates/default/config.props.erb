@@ -1,5 +1,16 @@
+[settings]
+no_definer_threads = <%= node[:volodb][:no_definer_threads] %>
+no_executor_threads = <%= node[:volodb][:no_executor_threads] %>
+single_cluster_connection = true
+transport_poll_wait = 10
+store_poll_wait = 10
+store_port = 5570
+mysql_address = <%= @ndb_connectstring %>
+mysql_port = 3306
+ndb_port = <%= node[:ndb][:mgmd][:port] %>
+mysql_user_name = <%= node[:mysql][:user] %>
+mysql_password = <%= node[:mysql][:password] %>
 
-data_size=<%= node[:volodb][:data_memory_mbs] %>
-timeout=<%= node[:volodb][:timeout_ms] %>
-master_ip=<%= @master_ip %>
-
+[test]
+warmup_time=4
+total_time=5
