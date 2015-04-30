@@ -1,5 +1,7 @@
 source "https://api.berkshelf.com"
 
+metadata
+
 cookbook 'kagent', github: 'karamelchef/kagent-chef'
 cookbook 'ark', github: 'burtlo/ark'
 cookbook 'protobuf', github: 'bflad/chef-protobuf'
@@ -9,4 +11,3 @@ cookbook 'apt'
 cookbook 'yum'
 cookbook 'build-essential'
 
-metadata
